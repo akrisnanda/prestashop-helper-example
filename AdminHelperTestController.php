@@ -220,7 +220,7 @@ class AdminHelperTestController extends ModuleAdminController
         $this->context->smarty->assign(array('date_interval0' => date("d/m/Y", strtotime($this->date_interval[0]))));
         $this->context->smarty->assign(array('date_interval1' => date("d/m/Y", strtotime($this->date_interval[1]))));
 
-        $this->setTemplate('doctors/doc_front.tpl');  
+        $this->setTemplate('test/test_front.tpl');  
         
     }
 }
