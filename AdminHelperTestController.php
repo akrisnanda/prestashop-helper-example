@@ -21,7 +21,7 @@ class AdminHelperTestController extends ModuleAdminController
             $this->processResetFilters();
         }
 
-        if(Tools::getValue('id_customer') && isset($_GET['statusdoctor'])){
+        if(Tools::getValue('id_customer') && isset($_GET['status'.$this->table])){
 
             $SQLUpdtCust = 'SELECT if(active=1,0,1) AS active FROM `'._DB_PREFIX_.'customer` WHERE id_customer = '.(int)Tools::getValue('id_customer');
 
@@ -148,13 +148,7 @@ class AdminHelperTestController extends ModuleAdminController
             a.`active` AS `active`, 
             a.email AS email_customer                
             FROM `'._DB_PREFIX_.'customer` AS a
-            LEFT JOIN `'._DB_PREFIX_.'doctor_clinic` dc ON dc.`id_doctor` = a.`id_customer`
             WHERE 1=1
-            AND EXISTS(
-                SELECT cg.id_customer
-                FROM `'._DB_PREFIX_.'customer_group` cg
-                WHERE cg.`id_customer`=a.`id_customer` AND cg.`id_group` IN ('.implode(',', EurodietModuleClass::getDoctorsGroups()).')
-            ) 
             AND a.`deleted` = 0 
             AND a.id_shop IN ('.implode(', ', Shop::getContextListShopID()).')
         )as total
