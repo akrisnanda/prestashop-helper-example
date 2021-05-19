@@ -164,7 +164,7 @@ class AdminHelperTestController extends ModuleAdminController
         $token = Tools::getAdminTokenLite('AdminTest'); 
 
         $helper2 = new HelperList();
-        $helper2->title = "Doctors";
+        $helper2->title = "Customers";
         $helper2->bootstrap = true;
         $helper2->show_toolbar = true;
         $helper2->toolbar_btn['export']  = array(
@@ -210,9 +210,6 @@ class AdminHelperTestController extends ModuleAdminController
             $this->processExportTest(';',$fields_list, $patientsN, $this->table);
         }            
 
-
-        $this->context->smarty->assign(array('date_interval0' => date("d/m/Y", strtotime($this->date_interval[0]))));
-        $this->context->smarty->assign(array('date_interval1' => date("d/m/Y", strtotime($this->date_interval[1]))));
 
         $this->setTemplate('test/test_front.tpl');  
         
