@@ -2,7 +2,7 @@
 
 Hi..
 
-This is sampe code using Class Helper in prestashop 1.6
+This is sampe code to use Class Helper in prestashop 1.6
 
 use this source in Admin area.
 You should create template file in themes path (themes\default\template\test)
